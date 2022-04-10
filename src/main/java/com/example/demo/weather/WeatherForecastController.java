@@ -1,5 +1,7 @@
 package com.example.demo.weather;
 
+import com.fasterxml.jackson.databind.JsonNode;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,7 +17,7 @@ public class WeatherForecastController {
     private OpenMeteoClient openMeteoClient;
 
     @GetMapping("/weatherforecast/wellington")
-    public WeatherForecastDataResponseDTO getWellingtonWeatherForecastData(
+    public JsonNode getWellingtonWeatherForecastData(
             @RequestParam MultiValueMap<String, Object> params) {
 
         params.set("latitude", WELLINGTON_LAT);
